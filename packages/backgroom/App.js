@@ -23,6 +23,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: 'rgb(4,4,4)',
+    justifyContent: 'space-around',
   },
   text: {
     color: 'white',
