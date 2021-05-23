@@ -1,12 +1,5 @@
 import React from 'react';
-import {
-  StyleSheet,
-  Image,
-  Text,
-  View,
-  TouchableOpacity,
-  Dimensions,
-} from 'react-native';
+import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
 export default function TrackDetails({
@@ -37,10 +30,6 @@ export default function TrackDetails({
       </View>
       <TouchableOpacity onPress={onMorePress}>
         <View style={styles.moreButton}>
-          {/* <Image
-            style={styles.moreButtonIcon}
-            source={require('../assets/baseline_more_horiz_white_24dp.png')}
-          /> */}
           <Icon
             name="more-horiz"
             color="white"

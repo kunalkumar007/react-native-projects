@@ -17,7 +17,7 @@ export default function AlbumArt({url, onPress}) {
   );
 }
 
-const {width, height} = Dimensions.get('window');
+const {width} = Dimensions.get('window');
 const imageSize = width - 48;
 const styles = StyleSheet.create({
   container: {

@@ -1,5 +1,5 @@
 import React, {useState, useRef, useImperativeHandle} from 'react';
-import {StyleSheet, View} from 'react-native';
+import {StyleSheet, View, ActivityIndicator} from 'react-native';
 import Header from './Header';
 import AlbumArt from './AlbumArt';
 import TrackDetails from './TrackDetails';
@@ -59,8 +59,9 @@ export default function Player(props) {
     }
   };
 
-  const loadStart = () => {};
-  const onEnd = () => {};
+  const loadStart = () => <ActivityIndicator />;
+
+  const onEnd = () => <ActivityIndicator />;
   const videoError = () => {};
   // add for accessing ref
   useImperativeHandle(props.playerRef, () => ({
