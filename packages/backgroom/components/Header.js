@@ -1,5 +1,6 @@
 import React from 'react';
 import {StyleSheet, Text, View, TouchableOpacity, Image} from 'react-native';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 export default function Header({
   message,
   onDownPress,
@@ -9,18 +10,22 @@ export default function Header({
   return (
     <View style={styles.container}>
       <TouchableOpacity onPress={onDownPress}>
-        <Image
+        <Icon
+          name="keyboard-arrow-down"
+          color="white"
+          size={20}
           style={styles.button}
-          source={require('../assets/baseline_keyboard_arrow_down_white_24dp.png')}
         />
       </TouchableOpacity>
       <Text onPress={onMessagePress} style={styles.message}>
         {message.toUpperCase()}
       </Text>
       <TouchableOpacity onPress={onQueuePress}>
-        <Image
+        <Icon
+          name="queue-music"
+          color="white"
+          size={20}
           style={styles.button}
-          source={require('../assets/baseline_queue_music_white_24dp.png')}
         />
       </TouchableOpacity>
     </View>

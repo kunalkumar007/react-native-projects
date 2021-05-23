@@ -7,6 +7,7 @@ import {
   TouchableOpacity,
   Dimensions,
 } from 'react-native';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
 export default function TrackDetails({
   title,
@@ -19,9 +20,11 @@ export default function TrackDetails({
   return (
     <View style={styles.container}>
       <TouchableOpacity onPress={onAddPress}>
-        <Image
+        <Icon
+          name="add-circle-outline"
+          color="white"
           style={styles.button}
-          source={require('../assets/baseline_add_circle_outline_white_24dp.png')}
+          size={22}
         />
       </TouchableOpacity>
       <View style={styles.detailsWrapper}>
@@ -34,9 +37,15 @@ export default function TrackDetails({
       </View>
       <TouchableOpacity onPress={onMorePress}>
         <View style={styles.moreButton}>
-          <Image
+          {/* <Image
             style={styles.moreButtonIcon}
             source={require('../assets/baseline_more_horiz_white_24dp.png')}
+          /> */}
+          <Icon
+            name="more-horiz"
+            color="white"
+            style={styles.moreButtonIcon}
+            size={16}
           />
         </View>
       </TouchableOpacity>

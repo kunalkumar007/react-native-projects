@@ -1,11 +1,12 @@
 import React from 'react';
-import {StyleSheet, Image, Text, View, TouchableOpacity} from 'react-native';
+import {StyleSheet, View, TouchableOpacity} from 'react-native';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
 const PlayComponent = props => {
   return (
     <TouchableOpacity onPress={props.onPressPause}>
       <View style={styles.playButton}>
-        <Image source={require('../assets/baseline_pause_white_48dp.png')} />
+        <Icon name="pause" size={48} color="white" />
       </View>
     </TouchableOpacity>
   );
@@ -14,9 +15,7 @@ const PlayComponent = props => {
 const BackComponent = props => {
   return (
     <TouchableOpacity onPress={props.onBack}>
-      <Image
-        source={require('../assets/baseline_skip_previous_white_36dp.png')}
-      />
+      <Icon name="skip-previous" color="white" size={36} />
     </TouchableOpacity>
   );
 };
@@ -24,9 +23,11 @@ const BackComponent = props => {
 const ShuffleComponent = props => {
   return (
     <TouchableOpacity activeOpacity={0.0} onPress={props.onPressShuffle}>
-      <Image
+      <Icon
+        name="queue-music"
+        color="white"
         style={[styles.secondaryControl, props.shuffleOn ? [] : styles.off]}
-        source={require('../assets/baseline_queue_music_white_24dp.png')}
+        size={20}
       />
     </TouchableOpacity>
   );
@@ -36,9 +37,7 @@ const PauseComponent = props => {
   return (
     <TouchableOpacity onPress={props.onPressPlay}>
       <View style={styles.playButton}>
-        <Image
-          source={require('../assets/baseline_play_arrow_white_48dp.png')}
-        />
+        <Icon name="play-arrow" size={48} color="white" />
       </View>
     </TouchableOpacity>
   );
@@ -49,9 +48,11 @@ const ForwardComponent = props => {
     <TouchableOpacity
       onPress={props.onForward}
       disabled={props.forwardDisabled}>
-      <Image
+      <Icon
+        name="skip-next"
+        size={36}
         style={[props.forwardDisabled && {opacity: 0.3}]}
-        source={require('../assets/baseline_skip_next_white_36dp.png')}
+        color="white"
       />
     </TouchableOpacity>
   );
@@ -60,9 +61,11 @@ const ForwardComponent = props => {
 const RepeatComponent = props => {
   return (
     <TouchableOpacity onPress={props.onPressRepeat}>
-      <Image
+      <Icon
+        name="repeat"
+        size={20}
+        color="white"
         style={[styles.secondaryControl, props.repeatOn ? [] : styles.off]}
-        source={require('../assets/baseline_repeat_white_24dp.png')}
       />
     </TouchableOpacity>
   );
