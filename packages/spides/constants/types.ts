@@ -12,4 +12,6 @@ interface Deck {
 	}[];
 	renderCard: (props: { item: RenderCard }) => JSX.Element;
 	renderNoMoreCards: () => JSX.Element;
+	onSwipeRight?: () => void;
+	onSwipeLeft?: () => void;
 }
