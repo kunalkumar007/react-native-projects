@@ -1,15 +1,18 @@
-import React from 'react';
-import { StyleSheet, Text, View, Image, ImageBackground, Button } from 'react-native';
+import React, { CSSProperties } from 'react';
+import { StyleSheet, Text, View, Image, ImageBackground, Button, ViewStyle } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 // import Icon from 'react-native-vector-icons/Ionicons';
 import Icon from '@expo/vector-icons/Ionicons';
 import Buttons from '../components/Button';
 import Card from '../components/Card';
-import Deck from '../components/Deck';
+// import Deck from '../components/Deck';
+import DeckFeature from '../components/DeckFeature';
 import DATA from '../data';
+import { IRenderCard } from 'constants/types';
+import { FunctionComponent } from 'react';
 
 type IrenderCardProps = {
-	item: RenderCard;
+	item: IRenderCard;
 };
 
 const renderCard = ({ item }: IrenderCardProps) => {
@@ -30,7 +33,7 @@ const renderCard = ({ item }: IrenderCardProps) => {
 	);
 };
 
-const renderNoMoreCards = () => {
+const renderNoMoreCards = (props) => {
 	return (
 		<View>
 			<Text style={styles.noCard}> NO MORE CARDS HERE</Text>
@@ -72,11 +75,11 @@ export default function Home() {
 					</View>
 				</View>
 			</ImageBackground>
-			<Deck data={DATA} renderCard={renderCard} renderNoMoreCards={renderNoMoreCards} />
+			<DeckFeature data={DATA} RenderCard={renderCard} RenderNoMoreCards={renderNoMoreCards} />
 			<ScrollView style={styles.scrollView} showsHorizontalScrollIndicator={false} horizontal>
-				<Card icon="md-pulse" title="TOTAL CASES" bg="red" number="113 329" />
-				<Card icon="ios-git-network" title="RECOVERED" bg="#fff" number="442 329" />
-				<Card icon="ios-heart-dislike" title="DEATH CASES" bg="#fff" number="113 329" />
+				<Card icon="md-pulse" title="TOTAL CASES" bg="red" number="113 329" onPress={() => {}} />
+				<Card icon="ios-git-network" title="RECOVERED" bg="#fff" number="442 329" onPress={() => {}} />
+				<Card icon="ios-heart-dislike" title="DEATH CASES" bg="#fff" number="113 329" onPress={() => {}} />
 			</ScrollView>
 			<View style={styles.buttonView}>
 				<Buttons name="ASYMPTOMATIC" number="1 778" />
@@ -198,7 +201,7 @@ const styles = StyleSheet.create({
 		width: '50%',
 	},
 	scrollView: {
-		marginTop: 170,
+		marginTop: 250,
 	},
 	buttonView: {
 		marginBottom: 34,
