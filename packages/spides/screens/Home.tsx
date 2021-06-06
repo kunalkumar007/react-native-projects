@@ -33,7 +33,7 @@ const renderCard = ({ item }: IrenderCardProps) => {
 	);
 };
 
-const renderNoMoreCards = (props) => {
+const renderNoMoreCards = () => {
 	return (
 		<View>
 			<Text style={styles.noCard}> NO MORE CARDS HERE</Text>

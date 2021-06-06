@@ -19,7 +19,7 @@ export interface IDeck {
 }
 
 export interface ICard {
-	icon: string;
+	icon: any;
 	title: string;
 	bg: string;
 	number: string;
