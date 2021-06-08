@@ -15,14 +15,7 @@ export default function Card(props: ICard) {
 				</TouchableOpacity>
 			</View>
 			<Text style={styles.title}>{props.title}</Text>
-			<Text
-				style={{
-					...styles.number,
-					color: props.bg == 'red' ? '#FFF' : '#000',
-				}}
-			>
-				{props.number}
-			</Text>
+			<Text style={[styles.number, { color: props.bg == 'red' ? '#FFF' : '#000' }]}>{props.number}</Text>
 		</View>
 	);
 }

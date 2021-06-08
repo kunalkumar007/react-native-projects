@@ -19,12 +19,17 @@ export interface IDeck {
 }
 
 export interface ICard {
-	icon: string;
+	icon: any;
 	title: string;
 	bg: string;
 	number: string;
 	onPress: () => void;
 }
+
+export type RootStackParamList = {
+	Home: undefined;
+	Detail: undefined;
+};
 
 export interface deckFeatureStyles {
 	deckContainer?: ViewStyle;

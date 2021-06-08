@@ -1,18 +1,22 @@
-import React, { CSSProperties } from 'react';
+import React from 'react';
 import { StyleSheet, Text, View, Image, ImageBackground, Button, ViewStyle } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
-// import Icon from 'react-native-vector-icons/Ionicons';
 import Icon from '@expo/vector-icons/Ionicons';
 import Buttons from '../components/Button';
 import Card from '../components/Card';
-// import Deck from '../components/Deck';
 import DeckFeature from '../components/DeckFeature';
 import DATA from '../data';
-import { IRenderCard } from 'constants/types';
-import { FunctionComponent } from 'react';
+import { IRenderCard, RootStackParamList } from 'constants/types';
+import { StackNavigationProp } from '@react-navigation/stack';
 
 type IrenderCardProps = {
 	item: IRenderCard;
+};
+
+type homeScreenProp = StackNavigationProp<RootStackParamList, 'Home'>;
+
+type Props = {
+	navigation: homeScreenProp;
 };
 
 const renderCard = ({ item }: IrenderCardProps) => {
@@ -33,7 +37,7 @@ const renderCard = ({ item }: IrenderCardProps) => {
 	);
 };
 
-const renderNoMoreCards = (props) => {
+const renderNoMoreCards = () => {
 	return (
 		<View>
 			<Text style={styles.noCard}> NO MORE CARDS HERE</Text>
@@ -42,7 +46,7 @@ const renderNoMoreCards = (props) => {
 	);
 };
 
-export default function Home() {
+export default function Home({ navigation }: Props) {
 	return (
 		<View style={styles.container}>
 			<ImageBackground
@@ -77,7 +81,15 @@ export default function Home() {
 			</ImageBackground>
 			<DeckFeature data={DATA} RenderCard={renderCard} RenderNoMoreCards={renderNoMoreCards} />
 			<ScrollView style={styles.scrollView} showsHorizontalScrollIndicator={false} horizontal>
-				<Card icon="md-pulse" title="TOTAL CASES" bg="red" number="113 329" onPress={() => {}} />
+				<Card
+					icon="md-pulse"
+					title="TOTAL CASES"
+					bg="red"
+					number="113 329"
+					onPress={() => {
+						navigation.navigate('Detail');
+					}}
+				/>
 				<Card icon="ios-git-network" title="RECOVERED" bg="#fff" number="442 329" onPress={() => {}} />
 				<Card icon="ios-heart-dislike" title="DEATH CASES" bg="#fff" number="113 329" onPress={() => {}} />
 			</ScrollView>
