@@ -99,7 +99,6 @@ const styles = StyleSheet.create({
 		marginLeft: 15,
 	},
 	locationContainer: {
-		borderWidth: 2,
 		alignSelf: 'center',
 		flexDirection: 'row',
 		paddingHorizontal: 30,

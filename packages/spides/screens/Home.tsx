@@ -90,8 +90,24 @@ export default function Home({ navigation }: Props) {
 						navigation.navigate('Detail');
 					}}
 				/>
-				<Card icon="ios-git-network" title="RECOVERED" bg="#fff" number="442 329" onPress={() => {}} />
-				<Card icon="ios-heart-dislike" title="DEATH CASES" bg="#fff" number="113 329" onPress={() => {}} />
+				<Card
+					icon="ios-git-network"
+					title="RECOVERED"
+					bg="#fff"
+					number="442 329"
+					onPress={() => {
+						navigation.navigate('Detail');
+					}}
+				/>
+				<Card
+					icon="ios-heart-dislike"
+					title="DEATH CASES"
+					bg="#fff"
+					number="113 329"
+					onPress={() => {
+						navigation.navigate('Detail');
+					}}
+				/>
 			</ScrollView>
 			<View style={styles.buttonView}>
 				<Buttons name="ASYMPTOMATIC" number="1 778" />
