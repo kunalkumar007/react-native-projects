@@ -26,6 +26,11 @@ export interface ICard {
 	onPress: () => void;
 }
 
+export type RootStackParamList = {
+	Home: undefined;
+	Detail: undefined;
+};
+
 export interface deckFeatureStyles {
 	deckContainer?: ViewStyle;
 	emptyCards?: ViewStyle;
