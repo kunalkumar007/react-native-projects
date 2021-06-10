@@ -1,21 +1,26 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import Navigator from './navigations/Navigator';
+import { NavigationContainer } from '@react-navigation/native';
+import {
+	useFonts,
+	Montserrat_700Bold,
+	Montserrat_600SemiBold,
+	Montserrat_800ExtraBold,
+} from '@expo-google-fonts/montserrat';
+// import AppLoading from 'expo';
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+	let [fontsLoaded] = useFonts({
+		Montserrat_700Bold,
+		Montserrat_600SemiBold,
+		Montserrat_800ExtraBold,
+	});
+	// if (!fontsLoaded) {
+	// 	return <AppLoading />;
+	// }
+	return (
+		<NavigationContainer>
+			<Navigator />
+		</NavigationContainer>
+	);
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
