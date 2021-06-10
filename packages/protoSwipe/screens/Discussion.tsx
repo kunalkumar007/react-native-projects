@@ -1,10 +1,10 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
-export default function Profile() {
+export default function Discussion() {
 	return (
 		<View>
-			<Text>Profile</Text>
+			<Text>Discussion</Text>
 		</View>
 	);
 }

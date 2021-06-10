@@ -8,6 +8,7 @@ import {
 	Montserrat_800ExtraBold,
 } from '@expo-google-fonts/montserrat';
 // import AppLoading from 'expo';
+import { ActivityIndicator } from 'react-native';
 
 export default function App() {
 	let [fontsLoaded] = useFonts({
@@ -15,9 +16,9 @@ export default function App() {
 		Montserrat_600SemiBold,
 		Montserrat_800ExtraBold,
 	});
-	// if (!fontsLoaded) {
-	// 	return <AppLoading />;
-	// }
+	if (!fontsLoaded) {
+		return <ActivityIndicator />;
+	}
 	return (
 		<NavigationContainer>
 			<Navigator />

@@ -3,10 +3,10 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
 import Ionicon from '@expo/vector-icons/Ionicons';
 import Entypo from '@expo/vector-icons/Entypo';
-import Home from '../components/Home';
-import Chat from '../components/Chat';
-import Profile from '../components/Profile';
-import { color } from 'react-native-reanimated';
+import Home from '../screens/Home';
+import Chat from '../screens/Chat';
+import Profile from '../screens/Profile';
+import Discussion from '../screens/Discussion';
 
 const Tab = createBottomTabNavigator();
 
@@ -26,14 +26,6 @@ const BottomTabNavigator = () => {
 			}}
 		>
 			<Tab.Screen
-				name="Home"
-				component={Home}
-				options={{
-					tabBarLabel: '',
-					tabBarIcon: ({ color, size }) => <Ionicon name="ios-compass" color={color} size={30} />,
-				}}
-			/>
-			<Tab.Screen
 				name="Chat"
 				component={Chat}
 				options={{
@@ -41,6 +33,15 @@ const BottomTabNavigator = () => {
 					tabBarIcon: ({ color, size }) => <Entypo name="chat" color={color} size={30} />,
 				}}
 			/>
+			<Tab.Screen
+				name="Home"
+				component={Home}
+				options={{
+					tabBarLabel: '',
+					tabBarIcon: ({ color, size }) => <Ionicon name="ios-compass" color={color} size={30} />,
+				}}
+			/>
+
 			<Tab.Screen
 				name="Profile"
 				component={Profile}
@@ -59,6 +60,7 @@ export default function Navigator() {
 	return (
 		<Stack.Navigator screenOptions={{ headerShown: false }}>
 			<Stack.Screen name="Chat" component={BottomTabNavigator} />
+			<Stack.Screen name="Dscussion" component={Discussion} />
 		</Stack.Navigator>
 	);
 }
