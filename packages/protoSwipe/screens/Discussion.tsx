@@ -31,7 +31,17 @@ export default function Discussion({ route, navigation }: Props) {
 	};
 	const { itemPic, itemName } = params;
 
-	const [inputMessage, setinputMessage] = useState('');
+	const [inputMessage, setMessage] = useState('');
+	const send = () => {
+		Data.push({ id: inputMessage, message: inputMessage });
+		setMessage('');
+	};
+
+	var txt = [];
+	for (var i = 5; i < Data.length; i++) {
+		txt.push(<Sent key={Data[i].id} message={Data[i].message} />);
+	}
+
 	return (
 		<LinearGradient colors={['#f26a50', '#f26a50', '#f20045']} style={styles.container}>
 			<View style={styles.main}>
@@ -45,7 +55,17 @@ export default function Discussion({ route, navigation }: Props) {
 				<ScrollView>
 					<LastWatch checkedOn="Yesterday" />
 					<Received image={itemPic} message={Data[0].message} />
+					<Sent message={Data[1].message} />
+					<Received image={itemPic} message={Data[2].message} />
+					<Sent message={Data[3].message} />
+					<LastWatch checkedOn="Today" />
+					<Received image={itemPic} message={Data[4].message} />
 				</ScrollView>
+				<Input
+					inputMessage={inputMessage}
+					setMessage={(inputMessage) => setMessage(inputMessage)}
+					onSendPress={send}
+				/>
 			</View>
 		</LinearGradient>
 	);

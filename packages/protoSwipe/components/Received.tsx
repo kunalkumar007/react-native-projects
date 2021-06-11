@@ -22,11 +22,12 @@ const styles = StyleSheet.create({
 		fontFamily: 'Montserrat_600SemiBold',
 	},
 	container: {
-		borderWidth: 2,
-		borderColor: Colors.AlertHighlightGreen,
 		flexDirection: 'row',
 		marginTop: 20,
 		width: 250,
+		alignSelf: 'flex-start',
+		flexGrow: 1,
+		flex: 1,
 	},
 	img: {
 		width: 40,
