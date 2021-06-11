@@ -1,12 +1,19 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { ScrollView, StyleSheet, Text, View, ActivityIndicator, Animated } from 'react-native';
+import { ScrollView, StyleSheet, Text, View, ActivityIndicator, Animated, Dimensions } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import Entypo from '@expo/vector-icons/Entypo';
 import MaterialIcon from '@expo/vector-icons/MaterialIcons';
 import Profile from './Profile';
 import Messages from '../components/Messages';
-import { IGithubUsers } from '../types/types';
-export default function Chat() {
+import { IGithubUsers, RootStackParamList } from '../types/types';
+import { StackNavigationProp } from '@react-navigation/stack';
+
+type chatScreenProp = StackNavigationProp<RootStackParamList, 'Chat'>;
+type Props = {
+	navigation: chatScreenProp;
+};
+
+export default function Chat({ navigation }: Props) {
 	const URL = `https://api.github.com/users`;
 	const [data, setData] = useState([]);
 	const [loading, setLoading] = useState(true);
@@ -36,8 +43,6 @@ export default function Chat() {
 		}).start();
 	}, []);
 
-	// console.log(data.login);
-
 	return (
 		<LinearGradient colors={['#f26a50', '#f20042', '#f20045']} style={styles.gradient}>
 			<View style={styles.headerContainer}>
@@ -55,7 +60,7 @@ export default function Chat() {
 					</Animated.View>
 				)}
 			</ScrollView>
-			<View style={styles.ops}>
+			<View style={styles.dayContainer}>
 				<View style={styles.col}>
 					<Text style={styles.day}>Sunday</Text>
 					<Entypo name="dots-three-horizontal" color="#000119" size={30} />
@@ -65,9 +70,21 @@ export default function Chat() {
 				{loading ? (
 					<ActivityIndicator size="large" color="#f20042" />
 				) : (
-					<Animated.View>
+					<Animated.View style={[list.getLayout(), styles.list]}>
 						{data.map((item: IGithubUsers, index) => (
-							<Messages key={item.id} username={item.login} uri={item.avatar_url} count={} />
+							<Messages
+								key={item.id}
+								username={item.login}
+								uri={item.avatar_url}
+								count={Math.floor(Math.random() * 3)}
+								onPress={() => {
+									navigation.navigate('Discussion', {
+										itemId: item.id,
+										itemName: item.login,
+										itemPic: item.avatar_url,
+									});
+								}}
+							/>
 						))}
 					</Animated.View>
 				)}
@@ -76,21 +93,25 @@ export default function Chat() {
 	);
 }
 
+const { width, height } = Dimensions.get('window');
+console.log(width, height * 0.14);
+
 const styles = StyleSheet.create({
 	gradient: {
-		height: '100%',
-		position: 'absolute',
-		left: 0,
-		right: 0,
-		top: 0,
+		// height: '100%',
+		// position: 'absolute',
+		// flex: 1,
+		// left: 0,
+		// right: 0,
+		// top: 0,
 		paddingHorizontal: 20,
 		paddingTop: 30,
+		// borderWidth: 2,
+		// borderColor: Colors.AlertHighlightGreen,
 	},
 	headerContainer: {
 		flexDirection: 'row',
 		alignItems: 'center',
-		// borderWidth: 2,
-		// borderColor: 'white',
 	},
 	header: {
 		fontFamily: 'Montserrat_800ExtraBold',
@@ -101,17 +122,24 @@ const styles = StyleSheet.create({
 	proContainer: {
 		marginRight: -20,
 		alignSelf: 'center',
+		// borderWidth: 2,
+		// borderColor: Colors.BarelyGrayEdge,
+		minHeight: 113,
+		height: height * 0.14,
 	},
 	card: {
 		marginLeft: 400,
 		width: 400,
 		flexDirection: 'row',
 	},
-	ops: {
+	dayContainer: {
 		borderTopLeftRadius: 40,
 		borderTopRightRadius: 40,
 		backgroundColor: '#fff',
-		height: 500,
+		// height: 500,
+		height: '12%',
+		// borderWidth: 2,
+		// borderColor: Colors.BlueGreenLighter,
 		marginHorizontal: -20,
 	},
 	col: {
@@ -125,5 +153,8 @@ const styles = StyleSheet.create({
 		color: '#000119',
 		flex: 1,
 		fontSize: 20,
+	},
+	list: {
+		marginTop: 300,
 	},
 });

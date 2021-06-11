@@ -7,7 +7,7 @@ import Home from '../screens/Home';
 import Chat from '../screens/Chat';
 import Profile from '../screens/Profile';
 import Discussion from '../screens/Discussion';
-
+import { RootStackParamList } from '../types/types';
 const Tab = createBottomTabNavigator();
 
 const BottomTabNavigator = () => {
@@ -54,13 +54,13 @@ const BottomTabNavigator = () => {
 	);
 };
 
-const Stack = createStackNavigator();
+const Stack = createStackNavigator<RootStackParamList>();
 
 export default function Navigator() {
 	return (
 		<Stack.Navigator screenOptions={{ headerShown: false }}>
+			<Stack.Screen name="Discussion" component={Discussion} />
 			<Stack.Screen name="Chat" component={BottomTabNavigator} />
-			<Stack.Screen name="Dscussion" component={Discussion} />
 		</Stack.Navigator>
 	);
 }
