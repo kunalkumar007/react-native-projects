@@ -32,8 +32,9 @@ export default function Discussion({ route, navigation }: Props) {
 	const { itemPic, itemName } = params;
 
 	const [inputMessage, setMessage] = useState('');
+	const [messageId, setmessageId] = useState(0);
 	const send = () => {
-		Data.push({ id: inputMessage, message: inputMessage });
+		Data.push({ id: messageId, message: inputMessage });
 		setMessage('');
 	};
 
@@ -63,7 +64,7 @@ export default function Discussion({ route, navigation }: Props) {
 				</ScrollView>
 				<Input
 					inputMessage={inputMessage}
-					setMessage={(inputMessage) => setMessage(inputMessage)}
+					setMessage={(inputMessage: string) => setMessage(inputMessage)}
 					onSendPress={send}
 				/>
 			</View>
