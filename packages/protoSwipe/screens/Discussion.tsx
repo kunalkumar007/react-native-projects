@@ -22,14 +22,7 @@ type Props = {
 };
 
 export default function Discussion({ route, navigation }: Props) {
-	// const { itemName, itemPic } = route.params;
-
-	const params = {
-		itemId: 1,
-		itemName: 'mojombo',
-		itemPic: 'https://avatars.githubusercontent.com/u/1?v=4',
-	};
-	const { itemPic, itemName } = params;
+	const { itemName, itemPic } = route.params;
 
 	const [inputMessage, setMessage] = useState('');
 	const [messageId, setmessageId] = useState(0);
