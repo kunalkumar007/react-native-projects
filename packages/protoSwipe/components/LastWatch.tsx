@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import Colors from './Colors';
+
 export default function LastWatch({ checkedOn }: { checkedOn: string }) {
 	return (
 		<View style={styles.container}>

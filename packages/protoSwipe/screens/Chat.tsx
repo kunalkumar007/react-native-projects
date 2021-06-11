@@ -98,16 +98,8 @@ console.log(width, height * 0.14);
 
 const styles = StyleSheet.create({
 	gradient: {
-		// height: '100%',
-		// position: 'absolute',
-		// flex: 1,
-		// left: 0,
-		// right: 0,
-		// top: 0,
 		paddingHorizontal: 20,
 		paddingTop: 30,
-		// borderWidth: 2,
-		// borderColor: Colors.AlertHighlightGreen,
 	},
 	headerContainer: {
 		flexDirection: 'row',
@@ -122,8 +114,6 @@ const styles = StyleSheet.create({
 	proContainer: {
 		marginRight: -20,
 		alignSelf: 'center',
-		// borderWidth: 2,
-		// borderColor: Colors.BarelyGrayEdge,
 		minHeight: 113,
 		height: height * 0.14,
 	},
@@ -136,10 +126,7 @@ const styles = StyleSheet.create({
 		borderTopLeftRadius: 40,
 		borderTopRightRadius: 40,
 		backgroundColor: '#fff',
-		// height: 500,
 		height: '12%',
-		// borderWidth: 2,
-		// borderColor: Colors.BlueGreenLighter,
 		marginHorizontal: -20,
 	},
 	col: {

@@ -59,8 +59,8 @@ const Stack = createStackNavigator<RootStackParamList>();
 export default function Navigator() {
 	return (
 		<Stack.Navigator screenOptions={{ headerShown: false }}>
-			<Stack.Screen name="Discussion" component={Discussion} />
 			<Stack.Screen name="Chat" component={BottomTabNavigator} />
+			<Stack.Screen name="Discussion" component={Discussion} />
 		</Stack.Navigator>
 	);
 }
