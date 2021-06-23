@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, ImageBackground, Dimensions } from 'react-native';
+import { StyleSheet, Text, View, ImageBackground, Dimensions, ViewStyle, StyleProp } from 'react-native';
 import colors from '../../constants/colors';
 import Ionicons from '@expo/vector-icons/Ionicons';
 
@@ -9,7 +9,7 @@ interface ICard {
 
 export default function Card({ uri }: ICard) {
 	return (
-		<View>
+		<View style={styles.container}>
 			<ImageBackground source={{ uri: uri }} style={styles.cardContainer}>
 				<View style={styles.iconContainer}>
 					<Ionicons name="heart-outline" size={20} />
@@ -32,6 +32,7 @@ export default function Card({ uri }: ICard) {
 const { width } = Dimensions.get('screen');
 
 const styles = StyleSheet.create({
+	container: {},
 	cardContainer: {
 		backgroundColor: colors.background,
 		height: width / 1.8,
